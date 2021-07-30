@@ -1,9 +1,8 @@
 package router
 
 import (
-	"github.com/gofiber/fiber/v2"
-
 	"fiber-web/middleware"
+	"github.com/gofiber/fiber/v2"
 )
 
 func InitRouter() *fiber.App {

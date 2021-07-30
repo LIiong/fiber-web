@@ -2,11 +2,11 @@ package db
 
 import (
 	"context"
+	config2 "fiber-web/config"
 	"fmt"
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
 	"log"
-	config2 "fiber-web/config"
 )
 
 var Mg MongoInstance

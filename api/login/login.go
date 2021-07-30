@@ -1,10 +1,10 @@
 package login
 
 import (
-	"github.com/dgrijalva/jwt-go"
-	"github.com/gofiber/fiber/v2"
 	"fiber-web/api"
 	"fiber-web/model"
+	"github.com/dgrijalva/jwt-go"
+	"github.com/gofiber/fiber/v2"
 	"time"
 )
 
@@ -24,7 +24,7 @@ func Login(c *fiber.Ctx) error {
 		return api.Response(c, err, nil)
 	}
 	err := user.Login()
-	if  err != nil{
+	if err != nil {
 		return api.Response(c, err, nil)
 	}
 	token := jwt.New(jwt.SigningMethodHS256)

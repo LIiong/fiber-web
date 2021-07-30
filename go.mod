@@ -11,15 +11,14 @@ require (
 	github.com/go-openapi/jsonreference v0.19.6 // indirect
 	github.com/go-openapi/spec v0.20.3 // indirect
 	github.com/go-openapi/swag v0.19.15 // indirect
-	github.com/go-resty/resty/v2 v2.6.0
 	github.com/gofiber/fiber/v2 v2.15.0
 	github.com/gofiber/jwt/v2 v2.2.4
 	github.com/klauspost/compress v1.13.1 // indirect
 	github.com/mailru/easyjson v0.7.7 // indirect
 	github.com/spf13/cobra v0.0.3
 	github.com/spf13/viper v1.7.1
+	github.com/stretchr/testify v1.7.0 // indirect
 	github.com/swaggo/swag v1.7.0
-	github.com/tkrajina/gpxgo v1.1.2
 	github.com/valyala/fasthttp v1.28.0 // indirect
 	go.mongodb.org/mongo-driver v1.5.1
 	go.uber.org/zap v1.10.0

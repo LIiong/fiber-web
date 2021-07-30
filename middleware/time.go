@@ -1,8 +1,8 @@
 package middleware
 
 import (
-	"github.com/gofiber/fiber/v2"
 	"fiber-web/pkg/logger"
+	"github.com/gofiber/fiber/v2"
 	"time"
 )
 

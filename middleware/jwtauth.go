@@ -1,9 +1,9 @@
 package middleware
 
 import (
+	"fiber-web/api"
 	"github.com/gofiber/fiber/v2"
 	jwtware "github.com/gofiber/jwt/v2"
-	"fiber-web/api"
 )
 
 // Protected protect routes

@@ -1,16 +1,16 @@
 package cmd
 
 import (
-	"fmt"
-	"github.com/spf13/cobra"
-	"log"
-	"os"
-	"os/signal"
 	config2 "fiber-web/config"
 	"fiber-web/db"
 	"fiber-web/pkg/logger"
 	"fiber-web/router"
 	"fiber-web/util"
+	"fmt"
+	"github.com/spf13/cobra"
+	"log"
+	"os"
+	"os/signal"
 )
 
 var (
@@ -36,19 +36,13 @@ func init() {
 	rootCmd.PersistentFlags().StringVarP(&port, "port", "p", "8888", "Tcp port server listening on")
 }
 
-type User struct {
-	Name string `json:"name"`
-	Age  int    `json:"age"`
-}
-
-
 func run() error {
 	app := router.InitRouter()
 	if port != "" {
 		config2.SetConfig(config, "settings.application.port", port)
 	}
 	go func() {
-		if err := app.Listen(":" + config2.ApplicationConfig.Port); err != nil{
+		if err := app.Listen(":" + config2.ApplicationConfig.Port); err != nil {
 			log.Fatalf("listen: %s\n", err)
 		}
 	}()
@@ -91,4 +85,3 @@ func SetupDB() {
 	//初始化数据库
 	db.InitMongo()
 }
-

@@ -3,13 +3,13 @@ application:
   host: 0.0.0.0
   ishttps: false
   mode: dev
-  name: ferry
+  name: fiber-web
   port: "8080"
   readtimeout: 1
   writertimeout: 2
 db:
   collection: todolist
-  database: test
+  database: demo
   host: localhost
   port: 27017
 settings:

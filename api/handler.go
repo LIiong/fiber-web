@@ -1,8 +1,8 @@
 package api
 
 import (
-	"github.com/gofiber/fiber/v2"
 	"fiber-web/pkg/errno"
+	"github.com/gofiber/fiber/v2"
 )
 
 type PageData struct {

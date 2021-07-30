@@ -1,12 +1,12 @@
 package router
 
 import (
-	swagger "github.com/arsmn/fiber-swagger/v2"
-	"github.com/gofiber/fiber/v2"
 	"fiber-web/api/login"
 	"fiber-web/api/task"
 	_ "fiber-web/docs"
 	"fiber-web/middleware"
+	swagger "github.com/arsmn/fiber-swagger/v2"
+	"github.com/gofiber/fiber/v2"
 )
 
 func InitSysRouter(app *fiber.App) fiber.Router {

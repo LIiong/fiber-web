@@ -1,12 +1,12 @@
 package config
 
 import (
+	"fiber-web/pkg/logger"
 	"fmt"
+	"github.com/spf13/viper"
 	"io/ioutil"
 	"os"
-	"fiber-web/pkg/logger"
 	"strings"
-	"github.com/spf13/viper"
 )
 
 var database *viper.Viper

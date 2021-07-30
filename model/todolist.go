@@ -2,10 +2,10 @@ package model
 
 import (
 	"context"
+	"fiber-web/db"
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/bson/primitive"
 	"log"
-	"fiber-web/db"
 	"time"
 )
 
@@ -17,6 +17,7 @@ type TodoList struct {
 	Status     bool               `json:"status,omitempty"`
 	CreateTime time.Time          `json:"createTime,omitempty"`
 }
+
 //查询所有
 func (t *TodoList) TodoLists() ([]*TodoList, error) {
 	res, err := db.Mg.Db.Collection(tableName).Find(context.TODO(), bson.D{})
@@ -32,6 +33,7 @@ func (t *TodoList) TodoLists() ([]*TodoList, error) {
 	}
 	return tech, nil
 }
+
 //新增
 func (t *TodoList) Save() (interface{}, error) {
 	t.Status = false
@@ -42,8 +44,9 @@ func (t *TodoList) Save() (interface{}, error) {
 	}
 	return insertResult.InsertedID, nil
 }
+
 //修改
-func (t *TodoList) ChangeStatus(taskId string) (interface{}, error){
+func (t *TodoList) ChangeStatus(taskId string) (interface{}, error) {
 	id, _ := primitive.ObjectIDFromHex(taskId)
 	status := t.Status
 	filter := bson.M{"_id": id}
@@ -54,6 +57,7 @@ func (t *TodoList) ChangeStatus(taskId string) (interface{}, error){
 	}
 	return result.UpsertedID, nil
 }
+
 //删除
 func (t TodoList) Remove(taskId string) (interface{}, error) {
 	id, _ := primitive.ObjectIDFromHex(taskId)

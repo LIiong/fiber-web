@@ -1,10 +1,10 @@
 application:
-  domain: localhost:8888
+  domain: localhost:8080
   host: 0.0.0.0
   ishttps: false
   mode: dev
-  name: ferry
-  port: "8888"
+  name: fiber-web
+  port: "8080"
   readtimeout: 1
   writertimeout: 2
 db:
@@ -15,3 +15,13 @@ db:
 settings:
   application:
     port: "8888"
+  log:
+    compress: 1
+    consolestdout: 1
+    filestdout: 0
+    level: debug
+    localtime: 1
+    maxage: 30
+    maxbackups: 300
+    maxsize: 10240
+    path: ./logs/ferry.log
