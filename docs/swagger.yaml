@@ -1,0 +1,187 @@
+definitions:
+  api.ResponseHTTP:
+    properties:
+      code:
+        type: integer
+      data:
+        type: object
+      message:
+        type: string
+      success:
+        type: boolean
+    type: object
+  model.TodoList:
+    properties:
+      createTime:
+        type: string
+      id:
+        type: string
+      status:
+        type: boolean
+      task:
+        type: string
+    type: object
+  model.User:
+    properties:
+      name:
+        type: string
+      password:
+        type: string
+    type: object
+info:
+  contact: {}
+  description: server token格式:Bearer token
+  title: server
+  version: "1.0"
+paths:
+  /api/task/{id}:
+    delete:
+      consumes:
+      - application/json
+      description: 删除
+      parameters:
+      - description: task ID
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/api.ResponseHTTP'
+            - properties:
+                data:
+                  type: string
+              type: object
+      security:
+      - jwt: []
+      summary: 删除
+      tags:
+      - task
+    put:
+      consumes:
+      - application/json
+      description: 修改
+      parameters:
+      - description: task ID
+        in: path
+        name: id
+        required: true
+        type: string
+      - description: task
+        in: body
+        name: task
+        required: true
+        schema:
+          $ref: '#/definitions/model.TodoList'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/api.ResponseHTTP'
+            - properties:
+                data:
+                  type: string
+              type: object
+      security:
+      - jwt: []
+      summary: 修改
+      tags:
+      - task
+  /api/task/list:
+    get:
+      consumes:
+      - application/json
+      description: 查询
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/api.ResponseHTTP'
+            - properties:
+                data:
+                  items:
+                    $ref: '#/definitions/model.TodoList'
+                  type: array
+              type: object
+      security:
+      - jwt: []
+      summary: 查询
+      tags:
+      - task
+  /api/task/save:
+    post:
+      consumes:
+      - application/json
+      description: 保存
+      parameters:
+      - description: save task
+        in: body
+        name: task
+        required: true
+        schema:
+          $ref: '#/definitions/model.TodoList'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/api.ResponseHTTP'
+            - properties:
+                data:
+                  type: string
+              type: object
+      security:
+      - jwt: []
+      summary: 保存
+      tags:
+      - task
+  /login:
+    post:
+      consumes:
+      - application/json
+      description: 登录
+      parameters:
+      - description: login user
+        in: body
+        name: user
+        required: true
+        schema:
+          $ref: '#/definitions/model.User'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/api.ResponseHTTP'
+            - properties:
+                data:
+                  type: string
+              type: object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/api.ResponseHTTP'
+      summary: 登录
+      tags:
+      - login
+securityDefinitions:
+  jwt:
+    in: header
+    name: Authorization
+    type: apiKey
+swagger: "2.0"

@@ -1,0 +1,17 @@
+application:
+  domain: localhost:8888
+  host: 0.0.0.0
+  ishttps: false
+  mode: dev
+  name: ferry
+  port: "8888"
+  readtimeout: 1
+  writertimeout: 2
+db:
+  collection: todolist
+  database: test
+  host: localhost
+  port: 27017
+settings:
+  application:
+    port: "8888"
