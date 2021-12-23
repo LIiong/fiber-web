@@ -8,7 +8,6 @@ import (
 	"github.com/gofiber/fiber/v2/middleware/requestid"
 )
 
-
 func InitMiddleware(app *fiber.App) {
 	// 日志处理
 	app.Use(logger.New(logger.Config{
@@ -22,6 +21,5 @@ func InitMiddleware(app *fiber.App) {
 	// Cache
 	//app.Use(cache.New())
 	app.Use(Timer())
-	app.Use(requestid.New())
 	app.Use(requestid.New())
 }
